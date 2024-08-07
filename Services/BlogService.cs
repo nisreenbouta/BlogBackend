@@ -2,6 +2,7 @@ using BlogApi.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BlogApi.Services
 {
@@ -16,18 +17,18 @@ namespace BlogApi.Services
             _blogs = database.GetCollection<Blog>("blogs");
         }
 
-        public List<Blog> Get() => _blogs.Find(blog => true).ToList();
+        public async Task<List<Blog>> GetAsync() => await _blogs.Find(blog => true).ToListAsync();
 
-        public Blog Get(string id) => _blogs.Find<Blog>(blog => blog.Id == id).FirstOrDefault();
+        public async Task<Blog> GetAsync(string id) => await _blogs.Find<Blog>(blog => blog.Id == id).FirstOrDefaultAsync();
 
-        public Blog Create(Blog blog)
+        public async Task<Blog> CreateAsync(Blog blog)
         {
-            _blogs.InsertOne(blog);
+            await _blogs.InsertOneAsync(blog);
             return blog;
         }
 
-        public void Update(string id, Blog blogIn) => _blogs.ReplaceOne(blog => blog.Id == id, blogIn);
+        public async Task UpdateAsync(string id, Blog blogIn) => await _blogs.ReplaceOneAsync(blog => blog.Id == id, blogIn);
 
-        public void Remove(string id) => _blogs.DeleteOne(blog => blog.Id == id);
+        public async Task RemoveAsync(string id) => await _blogs.DeleteOneAsync(blog => blog.Id == id);
     }
 }

@@ -1,8 +1,6 @@
-using BlogApi.Models;
 using BlogApi.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace BlogApi.Controllers
 {
@@ -18,58 +16,57 @@ namespace BlogApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Blog>>> GetAsync()
+        public async Task<ActionResult<List<Blog>>> GetAllBlogsAsync()
         {
-            var blogs = await _blogService.GetAsync();
-            return Ok(blogs);
+            return await _blogService.GetAllBlogsAsync();
         }
 
-        [HttpGet("{id:length(24)}", Name = "GetBlog")]
-        public async Task<ActionResult<Blog>> GetAsync(string id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Blog>> GetBlogByIdAsync(string id)
         {
-            var blog = await _blogService.GetAsync(id);
+            var blog = await _blogService.GetBlogByIdAsync(id);
 
             if (blog == null)
             {
                 return NotFound();
             }
 
-            return Ok(blog);
+            return blog;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Blog>> CreateAsync(Blog blog)
+        public async Task<ActionResult<Blog>> CreateBlogAsync(Blog blog)
         {
-            await _blogService.CreateAsync(blog);
-            return CreatedAtRoute("GetBlog", new { id = blog.Id.ToString() }, blog);
+            await _blogService.CreateBlogAsync(blog);
+            return CreatedAtRoute(nameof(GetBlogByIdAsync), new { id = blog.Id }, blog);
         }
 
-        [HttpPut("{id:length(24)}")]
-        public async Task<IActionResult> UpdateAsync(string id, Blog blogIn)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBlogAsync(string id, Blog blogIn)
         {
-            var blog = await _blogService.GetAsync(id);
+            var blog = await _blogService.GetBlogByIdAsync(id);
 
             if (blog == null)
             {
                 return NotFound();
             }
 
-            await _blogService.UpdateAsync(id, blogIn);
+            await _blogService.UpdateBlogAsync(id, blogIn);
 
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> DeleteAsync(string id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBlogAsync(string id)
         {
-            var blog = await _blogService.GetAsync(id);
+            var blog = await _blogService.GetBlogByIdAsync(id);
 
             if (blog == null)
             {
                 return NotFound();
             }
 
-            await _blogService.RemoveAsync(id);
+            await _blogService.RemoveBlogAsync(id);
 
             return NoContent();
         }

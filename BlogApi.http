@@ -1,6 +1,42 @@
 @BlogApi_HostAddress = http://localhost:5291
 
-GET {{BlogApi_HostAddress}}/weatherforecast/
+### Get all blogs
+GET {{BlogApi_HostAddress}}/api/blogs
 Accept: application/json
 
 ###
+
+### Get a blog by ID
+GET {{BlogApi_HostAddress}}/api/blogs/{id}
+Accept: application/json
+
+###
+
+### Create a new blog
+POST {{BlogApi_HostAddress}}/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Sample Blog Title",
+  "content": "This is the content of the sample blog.",
+  "author": "Author Name",
+  "publishedDate": "2024-08-09T00:00:00Z"
+}
+
+###
+
+### Update a blog by ID
+PUT {{BlogApi_HostAddress}}/api/blogs/{id}
+Content-Type: application/json
+
+{
+  "title": "Updated Blog Title",
+  "content": "This is the updated content of the blog.",
+  "author": "Updated Author Name",
+  "publishedDate": "2024-08-09T00:00:00Z"
+}
+
+###
+
+### Delete a blog by ID
+DELETE {{BlogApi_HostAddress}}/api/blogs/{id}

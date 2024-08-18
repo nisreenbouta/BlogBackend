@@ -44,3 +44,4 @@ E:\Nisreen\Desktop\BlogBackend\BlogApi\obj\Debug\net8.0\refint\BlogApi.dll
 E:\Nisreen\Desktop\BlogBackend\BlogApi\obj\Debug\net8.0\BlogApi.pdb
 E:\Nisreen\Desktop\BlogBackend\BlogApi\obj\Debug\net8.0\BlogApi.genruntimeconfig.cache
 E:\Nisreen\Desktop\BlogBackend\BlogApi\obj\Debug\net8.0\ref\BlogApi.dll
+E:\Nisreen\Desktop\BlogBackend\BlogApi\obj\Debug\net8.0\BlogApi.sourcelink.json

@@ -1,6 +1,5 @@
 using MongoDB.Driver;
 
-
 namespace BlogApi.Services
 {
     public class BlogService

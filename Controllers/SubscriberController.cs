@@ -8,7 +8,7 @@ namespace BlogApi.Controllers
     [ApiController]
     public class SubscriberController : ControllerBase
     {
-        private readonly Subscriber _subscriber;
+        private readonly SubscriberService _subscriber;
 
         public SubscriberController(SubscriberService subscriberService)
         {
@@ -41,8 +41,8 @@ namespace BlogApi.Controllers
             return CreatedAtRoute(nameof(GetSubscriberByIdAsync), new { id = subscriber.Id }, subscriber);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSubscriberStatusAsync(string id, Subscriber subscriberIn)
+       [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateSubscriberStatusAsync(string id, bool isActive)
         {
             var subscriber = await _subscriber.GetSubscriberByIdAsync(id);
 
@@ -51,10 +51,11 @@ namespace BlogApi.Controllers
                 return NotFound();
             }
 
-            await _subscriber.UpdateSubscriberStatusAsync(id, subscriberIn);
+            await _subscriber.UpdateSubscriberStatusAsync(id, isActive);
 
             return NoContent();
         }
+
 
     }
 }

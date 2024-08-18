@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Nisreen\\Desktop\\BlogBackend\\BlogApi\\BlogApi.csproj": {}
+    "E:\\Nisreen\\Desktop\\BlogApi\\BlogApi.csproj": {}
   },
   "projects": {
-    "E:\\Nisreen\\Desktop\\BlogBackend\\BlogApi\\BlogApi.csproj": {
+    "E:\\Nisreen\\Desktop\\BlogApi\\BlogApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Nisreen\\Desktop\\BlogBackend\\BlogApi\\BlogApi.csproj",
+        "projectUniqueName": "E:\\Nisreen\\Desktop\\BlogApi\\BlogApi.csproj",
         "projectName": "BlogApi",
-        "projectPath": "E:\\Nisreen\\Desktop\\BlogBackend\\BlogApi\\BlogApi.csproj",
+        "projectPath": "E:\\Nisreen\\Desktop\\BlogApi\\BlogApi.csproj",
         "packagesPath": "C:\\Users\\Nisreen\\.nuget\\packages\\",
-        "outputPath": "E:\\Nisreen\\Desktop\\BlogBackend\\BlogApi\\obj\\",
+        "outputPath": "E:\\Nisreen\\Desktop\\BlogApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nisreen\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

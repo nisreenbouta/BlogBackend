@@ -29,10 +29,12 @@ namespace BlogApi.Services{
         }
         
          // Update Subscriber's IsActive status
-        public async Task UpdateSubscriberStatusAsync(string id, bool isActive) {
+        public async Task UpdateSubscriberStatusAsync(string id, bool isActive)
+        {
             var update = Builders<Subscriber>.Update.Set(subscriber => subscriber.IsActive, isActive);
             await _subscriber.UpdateOneAsync(subscriber => subscriber.Id == id, update);
         }
+
 
     }
 
